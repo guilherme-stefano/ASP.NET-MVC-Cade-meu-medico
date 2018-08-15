@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadeMeuMedico", "CadeMeuMedico\CadeMeuMedico.csproj", "{E7DDBB8C-111F-4C81-95F0-E1537BC1E47A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacaoComCodeFirst", "AplicacaoComCodeFirst\AplicacaoComCodeFirst.csproj", "{5755150B-CC87-450C-97A7-252BB056590D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E7DDBB8C-111F-4C81-95F0-E1537BC1E47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7DDBB8C-111F-4C81-95F0-E1537BC1E47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7DDBB8C-111F-4C81-95F0-E1537BC1E47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5755150B-CC87-450C-97A7-252BB056590D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5755150B-CC87-450C-97A7-252BB056590D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5755150B-CC87-450C-97A7-252BB056590D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5755150B-CC87-450C-97A7-252BB056590D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
