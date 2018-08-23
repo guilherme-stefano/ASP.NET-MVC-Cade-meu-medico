@@ -175,12 +175,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CidadeMetadado.cs" />
     <Compile Include="Models\Cidades.cs">
       <DependentUpon>ModelApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EspecialidadeMetadado.cs" />
     <Compile Include="Models\Especialidades.cs">
       <DependentUpon>ModelApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MedicoMetadado.cs" />
     <Compile Include="Models\Medicos.cs">
       <DependentUpon>ModelApp.tt</DependentUpon>
     </Compile>
