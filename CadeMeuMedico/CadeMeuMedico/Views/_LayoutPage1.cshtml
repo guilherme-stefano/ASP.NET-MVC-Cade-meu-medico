@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Layout.cshtml";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -11,20 +11,20 @@
           rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark navbar-fixed-top bg-dark">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
             <a class="navbar-brand" href="/">Application name</a>
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="/Index/Paises" class="nav-link">Países</a></li>
-                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Medicos")" class="nav-link">Médicos</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Index", "Especialidades")" class="nav-link">Especialidades</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container body-content">
         @RenderBody()
     </div>
     <script src="@Url.Content("~/Scripts/jquery-3.0.0.min.js")">
