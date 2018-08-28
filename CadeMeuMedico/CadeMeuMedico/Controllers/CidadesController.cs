@@ -8,14 +8,14 @@ using System.Web.Mvc;
 
 namespace CadeMeuMedico.Controllers
 {
-    public class EspecialidadesController : Controller
+    public class CidadesController : Controller
     {
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
-        // GET: Especialidades
+        // GET: cidades
         public ActionResult Index()
         {
-            var especialidades = db.Especialidades;
-            return View(especialidades);
+            var cidades = db.Cidades;
+            return View(cidades);
         }
 
         public ActionResult Create()
@@ -24,43 +24,44 @@ namespace CadeMeuMedico.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Especialidades especialidade)
+        public ActionResult Create(Cidades cidade)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                db.Especialidades.Add(especialidade);
+                db.Cidades.Add(cidade);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(especialidade);
+            return View(cidade);
         }
 
         public ActionResult Edit(long id)
         {
-            var especialidade = db.Especialidades.Find(id);
+            var cidade = db.Cidades.Find(id);
 
-            return View(especialidade);
+            return View(cidade);
         }
 
         [HttpPost]
-        public ActionResult Edit(Especialidades especialidade)
+        public ActionResult Edit(Cidades cidade)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(especialidade).State = EntityState.Modified;
+                db.Entry(cidade).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(especialidade);
+            return View(cidade);
         }
 
         [HttpPost]
-        public string Delete(Especialidades especialidade)
+        public string Delete(Cidades cidade)
         {
-            try {
-                db.Especialidades.Remove(especialidade);
+            try
+            {
+                db.Cidades.Remove(cidade);
                 db.SaveChanges();
                 return Boolean.TrueString;
             }
@@ -69,7 +70,5 @@ namespace CadeMeuMedico.Controllers
                 return Boolean.FalseString;
             }
         }
-
-
     }
 }

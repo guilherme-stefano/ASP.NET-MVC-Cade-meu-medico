@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CadeMeuMedico.Models.Especialidades>
+﻿@model IEnumerable<CadeMeuMedico.Models.Cidades>
 
 @{
     ViewBag.Title = "Index";
@@ -24,7 +24,7 @@
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDEspecialidade }) |
+            @Html.ActionLink("Edit", "Edit", new {id=item.IDCidade }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>

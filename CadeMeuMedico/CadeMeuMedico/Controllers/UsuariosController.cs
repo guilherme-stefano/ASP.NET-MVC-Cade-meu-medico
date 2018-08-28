@@ -8,14 +8,14 @@ using System.Web.Mvc;
 
 namespace CadeMeuMedico.Controllers
 {
-    public class EspecialidadesController : Controller
+    public class UsuariosController : Controller
     {
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
-        // GET: Especialidades
+        // GET: usuarios
         public ActionResult Index()
         {
-            var especialidades = db.Especialidades;
-            return View(especialidades);
+            var usuarios = db.Usuarios;
+            return View(usuarios);
         }
 
         public ActionResult Create()
@@ -24,43 +24,43 @@ namespace CadeMeuMedico.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Especialidades especialidade)
+        public ActionResult Create(Usuarios usuario)
         {
             if(ModelState.IsValid)
             {
-                db.Especialidades.Add(especialidade);
+                db.Usuarios.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(especialidade);
+            return View(usuario);
         }
 
         public ActionResult Edit(long id)
         {
-            var especialidade = db.Especialidades.Find(id);
+            var usuario = db.Usuarios.Find(id);
 
-            return View(especialidade);
+            return View(usuario);
         }
 
         [HttpPost]
-        public ActionResult Edit(Especialidades especialidade)
+        public ActionResult Edit(Usuarios usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(especialidade).State = EntityState.Modified;
+                db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(especialidade);
+            return View(usuario);
         }
 
         [HttpPost]
-        public string Delete(Especialidades especialidade)
+        public string Delete(Usuarios usuario)
         {
             try {
-                db.Especialidades.Remove(especialidade);
+                db.Usuarios.Remove(usuario);
                 db.SaveChanges();
                 return Boolean.TrueString;
             }
@@ -69,7 +69,5 @@ namespace CadeMeuMedico.Controllers
                 return Boolean.FalseString;
             }
         }
-
-
     }
 }
