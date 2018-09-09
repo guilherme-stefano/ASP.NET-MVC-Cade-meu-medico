@@ -1,4 +1,5 @@
 ﻿using CadeMeuMedico.Models;
+using CadeMeuMedico.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,6 +13,27 @@ namespace CadeMeuMedico.Controllers
     {
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
         // GET: usuarios
+
+        [HttpGet]
+        public JsonResult AutenticacaoDeUsuario(string login, string senha)
+        {
+            if (UsuarioRepositorio.AutenticarUsuario(login, senha))
+            {
+                return Json(new
+                {
+                    Ok = true,
+                    Mensagem = "Usuário autenticado. Redirecionado ..."
+                }, JsonRequestBehavior.AllowGet);
+            } else
+            {
+                return Json(new
+                {
+                    Ok = false,
+                    Mensagem = "Usuãrio não encontrado. Tente Novamento."
+                }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public ActionResult Index()
         {
             var usuarios = db.Usuarios;

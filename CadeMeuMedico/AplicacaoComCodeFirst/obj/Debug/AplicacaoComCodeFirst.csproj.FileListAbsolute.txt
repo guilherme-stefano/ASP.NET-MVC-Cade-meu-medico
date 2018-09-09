@@ -78,3 +78,4 @@ C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\Aplicacao
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\AplicacaoComCodeFirst\bin\pt-br\System.Web.Webpages.Razor.resources.dll
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\AplicacaoComCodeFirst\bin\pt-br\System.Web.Helpers.resources.dll
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\AplicacaoComCodeFirst\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\AplicacaoComCodeFirst\obj\Debug\AplicacaoComCodeFirst.csprojAssemblyReference.cache

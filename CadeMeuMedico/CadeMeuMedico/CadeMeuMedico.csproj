@@ -145,11 +145,13 @@
     <Content Include="Models\ModelApp.edmx.diagram">
       <DependentUpon>ModelApp.edmx</DependentUpon>
     </Content>
+    <Content Include="App_Code\BannersPublicitarios.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Scripts\LoginHome.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -178,6 +180,9 @@
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BannersPublicitarios.cs">
+      <DependentUpon>ModelApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CidadeMetadado.cs" />
     <Compile Include="Models\Cidades.cs">
@@ -210,6 +215,9 @@
       <DependentUpon>ModelApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CookieRepositorio.cs" />
+    <Compile Include="Repository\RepositorioCriptografia.cs" />
+    <Compile Include="Repository\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -231,6 +239,7 @@
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Create.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
