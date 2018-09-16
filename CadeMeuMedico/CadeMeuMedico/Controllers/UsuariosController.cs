@@ -29,7 +29,7 @@ namespace CadeMeuMedico.Controllers
                 return Json(new
                 {
                     Ok = false,
-                    Mensagem = "Usuãrio não encontrado. Tente Novamento."
+                    Mensagem = "Usuãrio não encontrado. Tente Novamente."
                 }, JsonRequestBehavior.AllowGet);
             }
         }

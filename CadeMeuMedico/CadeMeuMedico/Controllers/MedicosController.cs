@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace CadeMeuMedico.Controllers
 {
-    public class MedicosController : Controller
+    public class MedicosController : BaseController
     {
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
         // GET: Medicos
