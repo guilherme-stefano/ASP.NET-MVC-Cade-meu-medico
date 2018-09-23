@@ -86,7 +86,14 @@ namespace CadeMeuMedico.Controllers
                 return Boolean.FalseString;
             }
         }
-            
+
+        [HttpGet]
+        public JsonResult CheckCRM(string CRM)
+        {
+            var result = db.Medicos.Where(m => m.CRM == CRM).ToList().Count() == 0;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
 
 
     }

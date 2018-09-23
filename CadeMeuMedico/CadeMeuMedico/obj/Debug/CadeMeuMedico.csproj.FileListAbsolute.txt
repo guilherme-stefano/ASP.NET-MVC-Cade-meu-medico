@@ -68,8 +68,13 @@ C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMe
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\System.Web.WebPages.Razor.xml
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.WebPages.Razor.resources.dll
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.csproj.CoreCompileInputs.cache
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.csproj.CopyComplete
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.dll
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.pdb
-C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.csprojAssemblyReference.cache

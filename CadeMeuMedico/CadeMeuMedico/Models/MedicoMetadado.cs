@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CadeMeuMedico.Models
 {
@@ -12,6 +13,7 @@ namespace CadeMeuMedico.Models
     public class MedicoMetadado
     {
         [Required(ErrorMessage = "Obrigatório informar o CRM")]
+        [Remote("CheckCRM", "Medicos", ErrorMessage = "CRM Já existe na base")]
         [StringLength(30, ErrorMessage = "O CRM deve possuir no máximo 30 caracteres")]
         public string CRM { get; set; }
         [Required(ErrorMessage = "Obrigatório informar o Nome")]
