@@ -1,4 +1,5 @@
 ﻿using CadeMeuMedico.Models;
+using CadeMeuMedico.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,7 +16,8 @@ namespace CadeMeuMedico.Controllers
         public ActionResult Index()
         {
             var medicos = db.Medicos.Include(s => s.Cidades).Include(m => m.Especialidades).ToList();
-            return View(medicos);
+            var medicosViewModel = AutoMapper.Mapper.Map<IEnumerable<Medicos>, IEnumerable<MedicosViewModel>>(medicos);
+            return View(medicosViewModel);
         }
 
         public ActionResult Create()

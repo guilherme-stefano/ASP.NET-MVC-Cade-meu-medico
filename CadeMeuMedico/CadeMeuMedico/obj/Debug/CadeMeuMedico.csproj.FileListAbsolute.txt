@@ -73,3 +73,14 @@ C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMe
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.dll
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.pdb
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.csprojAssemblyReference.cache
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\AutoMapper.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\System.ValueTuple.dll
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\AutoMapper.pdb
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\AutoMapper.xml
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\bin\System.ValueTuple.xml

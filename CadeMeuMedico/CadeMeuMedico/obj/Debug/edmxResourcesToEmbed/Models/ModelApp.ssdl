@@ -15,6 +15,7 @@
     </Key>
     <Property Name="IDCidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IDEstado" Type="int" />
   </EntityType>
   <EntityType Name="Especialidades">
     <Key>
@@ -22,6 +23,13 @@
     </Key>
     <Property Name="IDEspecialidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Medicos">
     <Key>
@@ -49,6 +57,18 @@
     <Property Name="Senha" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <Association Name="FK__Cidades__IDEstad__5FB337D6">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+    <End Role="Cidades" Type="Self.Cidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Cidades">
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_medicos_cidades">
     <End Role="Cidades" Type="Self.Cidades" Multiplicity="1" />
     <End Role="Medicos" Type="Self.Medicos" Multiplicity="*" />
@@ -77,8 +97,13 @@
     <EntitySet Name="BannersPublicitarios" EntityType="Self.BannersPublicitarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cidades" EntityType="Self.Cidades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Especialidades" EntityType="Self.Especialidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Medicos" EntityType="Self.Medicos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cidades__IDEstad__5FB337D6" Association="Self.FK__Cidades__IDEstad__5FB337D6">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Cidades" EntitySet="Cidades" />
+    </AssociationSet>
     <AssociationSet Name="fk_medicos_cidades" Association="Self.fk_medicos_cidades">
       <End Role="Cidades" EntitySet="Cidades" />
       <End Role="Medicos" EntitySet="Medicos" />
