@@ -1,16 +1,19 @@
-﻿@model CadeMeuMedico.Models.Medicos
+﻿@model CadeMeuMedico.ViewModels.MedicosViewModel
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script src="~/Scripts/Selectize/js/standalone/selectize.js"></script>
+<link rel="stylesheet" href="~/Content/Selectize/css/selectize.bootstrap3.css">
 <h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Medicos</h4>
         <hr />
@@ -95,7 +98,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDEspecialidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("IDEspecialidade", null, new { @class = "form-control" })
+                <select class="form-control select-especialidade" id="IDEspecialidade" name="IDEspecialidade">
+                    @foreach (var especialidade in ViewBag.especialidades)
+                    {
+                        <option @(Model.IDEspecialidade == @especialidade.IDEspecialidade ? "selected" : "") value="@especialidade.IDEspecialidade">@especialidade.Nome</option>
+                    }
+                </select>
                 @Html.ValidationMessageFor(model => model.IDEspecialidade, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -111,3 +119,14 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    $('.select-especialidade').selectize({
+        create: false,
+        sortField: {
+            field: 'text',
+            direction: 'asc'
+        },
+        dropdownParent: 'body'
+    });
+</script>

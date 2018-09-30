@@ -50,27 +50,28 @@ namespace CadeMeuMedico.Controllers
         public ActionResult Edit(long id)
         {
             Medicos medico = db.Medicos.Find(id);
+            var medicoViewModel = AutoMapper.Mapper.Map<Medicos, MedicosViewModel>(medico);
+            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medicoViewModel.IDCidade);
+            ViewBag.especialidades = db.Especialidades;
 
-            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medico.IDCidade);
-            ViewBag.IDEspecialidade = new SelectList(db.Especialidades, "IDEspecialidade", "Nome", medico.IDEspecialidade);
-
-            return View(medico);
+            return View(medicoViewModel);
         }
 
 
         [HttpPost]
-        public ActionResult Edit(Medicos medico)
+        public ActionResult Edit(MedicosViewModel medicoViewModel)
         {
             if (ModelState.IsValid)
             {
+                var medico = AutoMapper.Mapper.Map<MedicosViewModel, Medicos>(medicoViewModel);
                 db.Entry(medico).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidades", "Nome", medico.IDCidade);
-            ViewBag.IDCidade = new SelectList(db.Especialidades, "IDEspecialidade", "Nome", medico.IDEspecialidade);
+            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medicoViewModel.IDCidade);
+            ViewBag.especialidades = db.Especialidades;
 
-            return View(medico);
+            return View(medicoViewModel);
         }
 
         [HttpPost]
