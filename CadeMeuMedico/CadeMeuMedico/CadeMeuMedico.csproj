@@ -213,6 +213,9 @@
     <Compile Include="Models\BannersPublicitarios.cs">
       <DependentUpon>ModelApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Certificados.cs">
+      <DependentUpon>ModelApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CidadeMetadado.cs" />
     <Compile Include="Models\Cidades.cs">
       <DependentUpon>ModelApp.tt</DependentUpon>
@@ -250,6 +253,7 @@
     <Compile Include="Repository\CookieRepositorio.cs" />
     <Compile Include="Repository\RepositorioCriptografia.cs" />
     <Compile Include="Repository\UsuarioRepositorio.cs" />
+    <Compile Include="ViewModels\CertificadosViewModel.cs" />
     <Compile Include="ViewModels\CidadesViewModel.cs" />
     <Compile Include="ViewModels\EspecialidadesViewModel.cs" />
     <Compile Include="ViewModels\EstadosViewModel.cs" />

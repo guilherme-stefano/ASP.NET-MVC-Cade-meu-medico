@@ -9,6 +9,16 @@
     <Property Name="BannerCampanha" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="LinkBanner" Type="varchar" MaxLength="200" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CadeMeuMedicoBD.dbo.Certificados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Certificados">
+    <Key>
+      <PropertyRef Name="IDCertificado" />
+    </Key>
+    <Property Name="IDCertificado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" />
+    <Property Name="IDMedico" Type="bigint" />
+  </EntityType>
   <EntityType Name="Cidades">
     <Key>
       <PropertyRef Name="IDCidade" />
@@ -69,6 +79,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Certificado_Medico">
+    <End Role="Medicos" Type="Self.Medicos" Multiplicity="0..1" />
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicos">
+        <PropertyRef Name="IDMedico" />
+      </Principal>
+      <Dependent Role="Certificados">
+        <PropertyRef Name="IDMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_medicos_cidades">
     <End Role="Cidades" Type="Self.Cidades" Multiplicity="1" />
     <End Role="Medicos" Type="Self.Medicos" Multiplicity="*" />
@@ -100,9 +122,20 @@
     <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Medicos" EntityType="Self.Medicos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certificados" EntityType="Self.Certificados" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Certificados].[IDCertificado] AS [IDCertificado], 
+    [Certificados].[Nome] AS [Nome], 
+    [Certificados].[IDMedico] AS [IDMedico]
+    FROM [dbo].[Certificados] AS [Certificados]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__Cidades__IDEstad__5FB337D6" Association="Self.FK__Cidades__IDEstad__5FB337D6">
       <End Role="Estados" EntitySet="Estados" />
       <End Role="Cidades" EntitySet="Cidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Certificado_Medico" Association="Self.FK_Certificado_Medico">
+      <End Role="Medicos" EntitySet="Medicos" />
+      <End Role="Certificados" EntitySet="Certificados" />
     </AssociationSet>
     <AssociationSet Name="fk_medicos_cidades" Association="Self.fk_medicos_cidades">
       <End Role="Cidades" EntitySet="Cidades" />

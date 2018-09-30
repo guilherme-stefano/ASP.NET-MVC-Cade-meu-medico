@@ -107,7 +107,14 @@
                 @Html.ValidationMessageFor(model => model.IDEspecialidade, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <h3 class="control-label col-md-2">Torres</h3>
+        <br/>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-length="O certificado deve possuir no máximo 30 caracteres" data-val-length-max="30" data-val-required="Obrigatório informar o Nome" id="Certificado[0]" name="CRM" type="text" value="">
+            </div>
+        </div>
+        <div  class="form-group" id="container" />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -119,6 +126,25 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    function addField() {
+        var number = document.getElementById("member").value;
+        var container = document.getElementById("container");
+        while (container.hasChildNodes()) {
+            container.removeChild(container.lastChild);
+        }
+        for (i = 0; i < number; i++) {
+            container.appendChild(document.createTextNode("Member " + (i + 1)));
+            var input = document.createElement("input");
+            input.type = "text";
+            container.appendChild(input);
+            container.appendChild(document.createElement("br"));
+        }
+    }
+    $('.select-especialidade')
+</script>
+
 
 <script>
     $('.select-especialidade').selectize({

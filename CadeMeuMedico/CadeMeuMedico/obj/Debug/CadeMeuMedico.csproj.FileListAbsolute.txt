@@ -83,3 +83,4 @@ C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMe
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.csproj.CopyComplete
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.dll
 C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.pdb
+C:\Users\Pichau\source\repos\ASP.NET-MVC-Cade-meu-medico\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.csprojAssemblyReference.cache

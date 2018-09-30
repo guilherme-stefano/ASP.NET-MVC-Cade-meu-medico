@@ -14,6 +14,16 @@
           <Property Name="BannerCampanha" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="LinkBanner" Type="varchar" MaxLength="200" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CadeMeuMedicoBD.dbo.Certificados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Certificados">
+          <Key>
+            <PropertyRef Name="IDCertificado" />
+          </Key>
+          <Property Name="IDCertificado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" />
+          <Property Name="IDMedico" Type="bigint" />
+        </EntityType>
         <EntityType Name="Cidades">
           <Key>
             <PropertyRef Name="IDCidade" />
@@ -74,6 +84,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Certificado_Medico">
+          <End Role="Medicos" Type="Self.Medicos" Multiplicity="0..1" />
+          <End Role="Certificados" Type="Self.Certificados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicos">
+              <PropertyRef Name="IDMedico" />
+            </Principal>
+            <Dependent Role="Certificados">
+              <PropertyRef Name="IDMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_medicos_cidades">
           <End Role="Cidades" Type="Self.Cidades" Multiplicity="1" />
           <End Role="Medicos" Type="Self.Medicos" Multiplicity="*" />
@@ -105,9 +127,20 @@
           <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Medicos" EntityType="Self.Medicos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Certificados" EntityType="Self.Certificados" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Certificados].[IDCertificado] AS [IDCertificado], 
+    [Certificados].[Nome] AS [Nome], 
+    [Certificados].[IDMedico] AS [IDMedico]
+    FROM [dbo].[Certificados] AS [Certificados]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Cidades__IDEstad__5FB337D6" Association="Self.FK__Cidades__IDEstad__5FB337D6">
             <End Role="Estados" EntitySet="Estados" />
             <End Role="Cidades" EntitySet="Cidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Certificado_Medico" Association="Self.FK_Certificado_Medico">
+            <End Role="Medicos" EntitySet="Medicos" />
+            <End Role="Certificados" EntitySet="Certificados" />
           </AssociationSet>
           <AssociationSet Name="fk_medicos_cidades" Association="Self.fk_medicos_cidades">
             <End Role="Cidades" EntitySet="Cidades" />
@@ -129,6 +162,7 @@
           <EntitySet Name="Estados" EntityType="CadeMeuMedicoBDModel.Estados" />
           <EntitySet Name="Medicos" EntityType="CadeMeuMedicoBDModel.Medicos" />
           <EntitySet Name="Usuarios" EntityType="CadeMeuMedicoBDModel.Usuarios" />
+          <EntitySet Name="Certificados" EntityType="CadeMeuMedicoBDModel.Certificados" />
           <AssociationSet Name="FK__Cidades__IDEstad__5FB337D6" Association="CadeMeuMedicoBDModel.FK__Cidades__IDEstad__5FB337D6">
             <End Role="Estados" EntitySet="Estados" />
             <End Role="Cidades" EntitySet="Cidades" />
@@ -140,6 +174,10 @@
           <AssociationSet Name="fk_medicos_especialidades" Association="CadeMeuMedicoBDModel.fk_medicos_especialidades">
             <End Role="Especialidades" EntitySet="Especialidades" />
             <End Role="Medicos" EntitySet="Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Certificado_Medico" Association="CadeMeuMedicoBDModel.FK_Certificado_Medico">
+            <End Role="Medicos" EntitySet="Medicos" />
+            <End Role="Certificados" EntitySet="Certificados" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BannersPublicitarios">
@@ -194,6 +232,7 @@
           <Property Name="IDEspecialidade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cidades" Relationship="CadeMeuMedicoBDModel.fk_medicos_cidades" FromRole="Medicos" ToRole="Cidades" />
           <NavigationProperty Name="Especialidades" Relationship="CadeMeuMedicoBDModel.fk_medicos_especialidades" FromRole="Medicos" ToRole="Especialidades" />
+          <NavigationProperty Name="Certificados" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Medicos" ToRole="Certificados" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -204,6 +243,15 @@
           <Property Name="Login" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Senha" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Certificados">
+          <Key>
+            <PropertyRef Name="IDCertificado" />
+          </Key>
+          <Property Name="IDCertificado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDMedico" Type="Int64" />
+          <NavigationProperty Name="Medicos" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Certificados" ToRole="Medicos" />
         </EntityType>
         <Association Name="FK__Cidades__IDEstad__5FB337D6">
           <End Type="CadeMeuMedicoBDModel.Estados" Role="Estados" Multiplicity="0..1" />
@@ -238,6 +286,18 @@
             </Principal>
             <Dependent Role="Medicos">
               <PropertyRef Name="IDEspecialidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Certificado_Medico">
+          <End Type="CadeMeuMedicoBDModel.Medicos" Role="Medicos" Multiplicity="0..1" />
+          <End Type="CadeMeuMedicoBDModel.Certificados" Role="Certificados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicos">
+              <PropertyRef Name="IDMedico" />
+            </Principal>
+            <Dependent Role="Certificados">
+              <PropertyRef Name="IDMedico" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -307,6 +367,15 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Certificados">
+            <EntityTypeMapping TypeName="CadeMeuMedicoBDModel.Certificados">
+              <MappingFragment StoreEntitySet="Certificados">
+                <ScalarProperty Name="IDMedico" ColumnName="IDMedico" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IDCertificado" ColumnName="IDCertificado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

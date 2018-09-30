@@ -14,6 +14,12 @@ namespace CadeMeuMedico.Models
     
     public partial class Medicos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Medicos()
+        {
+            this.Certificados = new HashSet<Certificados>();
+        }
+    
         public long IDMedico { get; set; }
         public string CRM { get; set; }
         public string Nome { get; set; }
@@ -28,5 +34,7 @@ namespace CadeMeuMedico.Models
     
         public virtual Cidades Cidades { get; set; }
         public virtual Especialidades Especialidades { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Certificados> Certificados { get; set; }
     }
 }
