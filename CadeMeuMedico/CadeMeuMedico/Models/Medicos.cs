@@ -32,9 +32,9 @@ namespace CadeMeuMedico.Models
         public int IDCidade { get; set; }
         public int IDEspecialidade { get; set; }
     
-        public virtual Cidades Cidades { get; set; }
-        public virtual Especialidades Especialidades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Certificados> Certificados { get; set; }
+        public virtual Cidades Cidades { get; set; }
+        public virtual Especialidades Especialidades { get; set; }
     }
 }

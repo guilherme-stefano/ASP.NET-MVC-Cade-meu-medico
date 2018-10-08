@@ -37,8 +37,22 @@ namespace CadeMeuMedico.Controllers
             {
                 db.Medicos.Add(medico);
                 db.SaveChanges();
+                int indexNome = 0;
+
+                while (Request["certificado[" + indexNome + "].Nome"] != null)
+                {
+                    string inputNome = "certificado[" + indexNome + "].Nome";
+                    string nome = Request[inputNome];
+                    Certificados certificado = new Certificados();
+                    certificado.Nome = nome;
+                    certificado.IDMedico = medico.IDMedico;
+                    db.Certificados.Add(certificado);
+                    indexNome++;
+                }
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
+           
             ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade","Nome", medico.IDCidade);
             ViewBag.IDEspecialidade = new SelectList(db.Especialidades,
             "IDEspecialidade",
@@ -51,7 +65,7 @@ namespace CadeMeuMedico.Controllers
         {
             Medicos medico = db.Medicos.Find(id);
             var medicoViewModel = AutoMapper.Mapper.Map<Medicos, MedicosViewModel>(medico);
-            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medicoViewModel.IDCidade);
+            ViewBag.IDCidade = db.Cidades;
             ViewBag.especialidades = db.Especialidades;
 
             return View(medicoViewModel);
@@ -61,17 +75,19 @@ namespace CadeMeuMedico.Controllers
         [HttpPost]
         public ActionResult Edit(MedicosViewModel medicoViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var medico = AutoMapper.Mapper.Map<MedicosViewModel, Medicos>(medicoViewModel);
-                db.Entry(medico).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medicoViewModel.IDCidade);
-            ViewBag.especialidades = db.Especialidades;
+                ViewBag.IDCidade = db.Cidades;
+                ViewBag.especialidades = db.Especialidades;
 
-            return View(medicoViewModel);
+                return View(medicoViewModel);
+            }
+
+            var medico = AutoMapper.Mapper.Map<MedicosViewModel, Medicos>(medicoViewModel);
+            db.Entry(medico).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         [HttpPost]
@@ -89,7 +105,16 @@ namespace CadeMeuMedico.Controllers
                 return Boolean.FalseString;
             }
         }
-            
+
+        [HttpGet]
+        public JsonResult CheckUnique(int? IdSetorTrabalho, string Descricao)
+        {
+
+            var result = true;
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
 
 
     }

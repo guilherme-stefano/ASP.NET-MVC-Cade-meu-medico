@@ -6,16 +6,17 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0284ff2a6de64c78bf6dbf2baab38cd7" Name="Diagram1">
         <EntityTypeShape EntityType="CadeMeuMedicoBDModel.BannersPublicitarios" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Certificados" Width="1.5" PointX="7.5" PointY="2" />
         <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Cidades" Width="1.5" PointX="3" PointY="1.875" />
         <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Especialidades" Width="1.5" PointX="3" PointY="6.125" />
         <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Estados" Width="1.5" PointX="0.75" PointY="2.125" />
         <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Medicos" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Usuarios" Width="1.5" PointX="7.75" PointY="4.75" />
-        <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Certificados" Width="1.5" PointX="7.5" PointY="2" />
+        <EntityTypeShape EntityType="CadeMeuMedicoBDModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CadeMeuMedicoBDModel.Usuarios" Width="1.5" PointX="7.75" PointY="7.75" />
+        <AssociationConnector Association="CadeMeuMedicoBDModel.FK_Certificado_Medico" />
         <AssociationConnector Association="CadeMeuMedicoBDModel.FK__Cidades__IDEstad__5FB337D6" />
         <AssociationConnector Association="CadeMeuMedicoBDModel.fk_medicos_cidades" />
         <AssociationConnector Association="CadeMeuMedicoBDModel.fk_medicos_especialidades" />
-        <AssociationConnector Association="CadeMeuMedicoBDModel.FK_Certificado_Medico" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -246,6 +246,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelApp.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ModelApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Usuarios.cs">
       <DependentUpon>ModelApp.tt</DependentUpon>
     </Compile>

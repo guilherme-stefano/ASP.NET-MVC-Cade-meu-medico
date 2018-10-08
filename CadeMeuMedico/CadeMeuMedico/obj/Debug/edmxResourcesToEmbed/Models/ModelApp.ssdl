@@ -9,8 +9,6 @@
     <Property Name="BannerCampanha" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="LinkBanner" Type="varchar" MaxLength="200" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'CadeMeuMedicoBD.dbo.Certificados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Certificados">
     <Key>
       <PropertyRef Name="IDCertificado" />
@@ -56,6 +54,16 @@ warning 6002: The table/view 'CadeMeuMedicoBD.dbo.Certificados' does not have a 
     <Property Name="WebsiteBlog" Type="varchar" MaxLength="80" />
     <Property Name="IDCidade" Type="int" Nullable="false" />
     <Property Name="IDEspecialidade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -117,18 +125,13 @@ warning 6002: The table/view 'CadeMeuMedicoBD.dbo.Certificados' does not have a 
   </Association>
   <EntityContainer Name="CadeMeuMedicoBDModelStoreContainer">
     <EntitySet Name="BannersPublicitarios" EntityType="Self.BannersPublicitarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certificados" EntityType="Self.Certificados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cidades" EntityType="Self.Cidades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Especialidades" EntityType="Self.Especialidades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Medicos" EntityType="Self.Medicos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Certificados" EntityType="Self.Certificados" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Certificados].[IDCertificado] AS [IDCertificado], 
-    [Certificados].[Nome] AS [Nome], 
-    [Certificados].[IDMedico] AS [IDMedico]
-    FROM [dbo].[Certificados] AS [Certificados]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK__Cidades__IDEstad__5FB337D6" Association="Self.FK__Cidades__IDEstad__5FB337D6">
       <End Role="Estados" EntitySet="Estados" />
       <End Role="Cidades" EntitySet="Cidades" />

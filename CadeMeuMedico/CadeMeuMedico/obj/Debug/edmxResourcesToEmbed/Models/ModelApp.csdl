@@ -2,12 +2,17 @@
 <Schema Namespace="CadeMeuMedicoBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="CadeMeuMedicoBDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BannersPublicitarios" EntityType="CadeMeuMedicoBDModel.BannersPublicitarios" />
+    <EntitySet Name="Certificados" EntityType="CadeMeuMedicoBDModel.Certificados" />
     <EntitySet Name="Cidades" EntityType="CadeMeuMedicoBDModel.Cidades" />
     <EntitySet Name="Especialidades" EntityType="CadeMeuMedicoBDModel.Especialidades" />
     <EntitySet Name="Estados" EntityType="CadeMeuMedicoBDModel.Estados" />
     <EntitySet Name="Medicos" EntityType="CadeMeuMedicoBDModel.Medicos" />
+    <EntitySet Name="sysdiagrams" EntityType="CadeMeuMedicoBDModel.sysdiagrams" />
     <EntitySet Name="Usuarios" EntityType="CadeMeuMedicoBDModel.Usuarios" />
-    <EntitySet Name="Certificados" EntityType="CadeMeuMedicoBDModel.Certificados" />
+    <AssociationSet Name="FK_Certificado_Medico" Association="CadeMeuMedicoBDModel.FK_Certificado_Medico">
+      <End Role="Medicos" EntitySet="Medicos" />
+      <End Role="Certificados" EntitySet="Certificados" />
+    </AssociationSet>
     <AssociationSet Name="FK__Cidades__IDEstad__5FB337D6" Association="CadeMeuMedicoBDModel.FK__Cidades__IDEstad__5FB337D6">
       <End Role="Estados" EntitySet="Estados" />
       <End Role="Cidades" EntitySet="Cidades" />
@@ -20,10 +25,6 @@
       <End Role="Especialidades" EntitySet="Especialidades" />
       <End Role="Medicos" EntitySet="Medicos" />
     </AssociationSet>
-    <AssociationSet Name="FK_Certificado_Medico" Association="CadeMeuMedicoBDModel.FK_Certificado_Medico">
-      <End Role="Medicos" EntitySet="Medicos" />
-      <End Role="Certificados" EntitySet="Certificados" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BannersPublicitarios">
     <Key>
@@ -33,6 +34,15 @@
     <Property Name="TituloCampanha" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
     <Property Name="BannerCampanha" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="LinkBanner" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Certificados">
+    <Key>
+      <PropertyRef Name="IDCertificado" />
+    </Key>
+    <Property Name="IDCertificado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDMedico" Type="Int64" />
+    <NavigationProperty Name="Medicos" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Certificados" ToRole="Medicos" />
   </EntityType>
   <EntityType Name="Cidades">
     <Key>
@@ -75,9 +85,19 @@
     <Property Name="WebsiteBlog" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
     <Property Name="IDCidade" Type="Int32" Nullable="false" />
     <Property Name="IDEspecialidade" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Certificados" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Medicos" ToRole="Certificados" />
     <NavigationProperty Name="Cidades" Relationship="CadeMeuMedicoBDModel.fk_medicos_cidades" FromRole="Medicos" ToRole="Cidades" />
     <NavigationProperty Name="Especialidades" Relationship="CadeMeuMedicoBDModel.fk_medicos_especialidades" FromRole="Medicos" ToRole="Especialidades" />
-    <NavigationProperty Name="Certificados" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Medicos" ToRole="Certificados" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -89,15 +109,18 @@
     <Property Name="Senha" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="Certificados">
-    <Key>
-      <PropertyRef Name="IDCertificado" />
-    </Key>
-    <Property Name="IDCertificado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="IDMedico" Type="Int64" />
-    <NavigationProperty Name="Medicos" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Certificados" ToRole="Medicos" />
-  </EntityType>
+  <Association Name="FK_Certificado_Medico">
+    <End Type="CadeMeuMedicoBDModel.Medicos" Role="Medicos" Multiplicity="0..1" />
+    <End Type="CadeMeuMedicoBDModel.Certificados" Role="Certificados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicos">
+        <PropertyRef Name="IDMedico" />
+      </Principal>
+      <Dependent Role="Certificados">
+        <PropertyRef Name="IDMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Cidades__IDEstad__5FB337D6">
     <End Type="CadeMeuMedicoBDModel.Estados" Role="Estados" Multiplicity="0..1" />
     <End Type="CadeMeuMedicoBDModel.Cidades" Role="Cidades" Multiplicity="*" />
@@ -131,18 +154,6 @@
       </Principal>
       <Dependent Role="Medicos">
         <PropertyRef Name="IDEspecialidade" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Certificado_Medico">
-    <End Type="CadeMeuMedicoBDModel.Medicos" Role="Medicos" Multiplicity="0..1" />
-    <End Type="CadeMeuMedicoBDModel.Certificados" Role="Certificados" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Medicos">
-        <PropertyRef Name="IDMedico" />
-      </Principal>
-      <Dependent Role="Certificados">
-        <PropertyRef Name="IDMedico" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

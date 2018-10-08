@@ -26,11 +26,12 @@ namespace CadeMeuMedico.Models
         }
     
         public virtual DbSet<BannersPublicitarios> BannersPublicitarios { get; set; }
+        public virtual DbSet<Certificados> Certificados { get; set; }
         public virtual DbSet<Cidades> Cidades { get; set; }
         public virtual DbSet<Especialidades> Especialidades { get; set; }
         public virtual DbSet<Estados> Estados { get; set; }
         public virtual DbSet<Medicos> Medicos { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
-        public virtual DbSet<Certificados> Certificados { get; set; }
     }
 }

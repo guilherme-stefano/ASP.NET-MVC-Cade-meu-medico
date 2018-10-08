@@ -32,6 +32,7 @@ namespace CadeMeuMedico.ViewModels
         public string WebsiteBlog { get; set; }
         [Required(ErrorMessage = "Obrigatório informar a Cidade")]
         public int IDCidade { get; set; }
+        [RegularExpression("(^[0-9]*$)", ErrorMessage = "O campo Cidade é obrigatório.")]
         [Required(ErrorMessage = "Obrigatório informar a Especialidade")]
         public int IDEspecialidade { get; set; }
 
