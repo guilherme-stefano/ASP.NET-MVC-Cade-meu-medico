@@ -65,7 +65,7 @@ namespace CadeMeuMedico.Controllers
         {
             Medicos medico = db.Medicos.Find(id);
             var medicoViewModel = AutoMapper.Mapper.Map<Medicos, MedicosViewModel>(medico);
-            ViewBag.IDCidade = db.Cidades;
+            ViewBag.cidades = PopulateCidades();
             ViewBag.especialidades = db.Especialidades;
 
             return View(medicoViewModel);
@@ -77,7 +77,7 @@ namespace CadeMeuMedico.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.IDCidade = db.Cidades;
+                ViewBag.cidades = PopulateCidades();
                 ViewBag.especialidades = db.Especialidades;
 
                 return View(medicoViewModel);
@@ -116,6 +116,21 @@ namespace CadeMeuMedico.Controllers
         }
 
 
+        public List<SelectListItem> PopulateCidades()
+        {
+            var cidades = db.Cidades;
+            var selectCidade = new List<SelectListItem>();
 
+            foreach (var item in cidades)
+            {
+                var listItem = new SelectListItem();
+                listItem.Text = item.Nome;
+                listItem.Value = item.IDCidade.ToString();
+
+                selectCidade.Add(listItem);
+            }
+
+            return selectCidade;
+        }
     }
 }

@@ -87,16 +87,11 @@
                 @Html.ValidationMessageFor(model => model.WebsiteBlog, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.IDCidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select class="form-control select-especialidade" id="IDCidade" name="IDCidade">
-                    @foreach (var cidade in ViewBag.IDCidade)
-                    {
-                        <option @(Model.IDCidade == @cidade.IDCidade ? "selected" : "") value="@cidade.IDCidade">@cidade.Nome</option>
-                    }
-                </select>
+                @Html.DropDownListFor(m => m.IDCidade, new List<SelectListItem>(), "", new { @class = "select-editable" })
                 @Html.ValidationMessageFor(model => model.IDCidade, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -113,7 +108,11 @@
                 @Html.ValidationMessageFor(model => model.IDEspecialidade, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div  class="form-group" id="container" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input value="Adicionar Especialidade" data-id="@Model.IDMedico" class="btn btn-default edit" />
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -126,17 +125,55 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+<div class="modal" id="modal">
+
+</div>
 
 <script>
-    $('.select-especialidade').selectize({
-        create: false,
-        sortField: {
-            field: 'text',
-            direction: 'asc'
-        },
-        dropdownParent: 'body',
-        allowEmptyOption: true
+    $(function () {
+        $(".edit").click(function () {
+            var id = $(this).attr("data-id");
+            var url = window.location.origin + "/Especialidades/Create";
+            $("#modal").load(url, function () {
+                $("#modal").modal();
+            })
+        });
+    })
+</script>
+
+<script>
+    $('.select-editable').each(function (index) {
+
+        var selectize = $(this).selectize({
+            create: false,
+            sortField: {
+                field: 'text',
+                direction: 'asc',
+            },
+            hideSelected: false,
+        });
+
+        var input = selectize[0].selectize.$control_input[0];
+
+        selectize[0].selectize.on("type", function (data) {
+            selectize[0].selectize.addOption({ value: 1, text: 'foo' });
+            selectize[0].selectize.addOption({ value: 11, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 12, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 13, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 14, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 15, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 16, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 17, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 18, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 19, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 20, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 21, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 22, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 23, text: 'foof' });
+            selectize[0].selectize.addOption({ value: 25, text: 'foof' });
+        })
     });
+
 
     document.getElementById("CRM").focusout = function () { verifyUniqueCNPJ() };
 
@@ -151,7 +188,7 @@
         $.ajax({
             url: urlCheck,
             method: "GET",
-            data: {CNPJ: noMaskValue },
+            data: { CNPJ: noMaskValue },
             success: function (data) {
                 result = data;
                 if (data) {
