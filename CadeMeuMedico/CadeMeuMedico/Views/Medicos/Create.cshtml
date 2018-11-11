@@ -7,142 +7,467 @@
 <script src="~/Scripts/jquery-3.0.0.min.js"></script>
 <h2>Adicionar</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Medicos</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.CRM, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CRM, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CRM, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Medicos</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CRM, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CRM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CRM, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.AtendePorConvenio, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.AtendePorConvenio)
-                @Html.ValidationMessageFor(model => model.AtendePorConvenio, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.AtendePorConvenio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.AtendePorConvenio)
+                    @Html.ValidationMessageFor(model => model.AtendePorConvenio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TemClinica, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TemClinica)
+                    @Html.ValidationMessageFor(model => model.TemClinica, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WebsiteBlog, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WebsiteBlog, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WebsiteBlog, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDCidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IDCidade", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDCidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDEspecialidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IDEspecialidade", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDEspecialidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h3 class="control-label col-md-2">Certificados</h3>
+        <input type="button" id="btn-adicionar-certificado" class="add_fields" value="adiciona">
+        <br />
+        <div id="row-certificados">
+
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.TemClinica, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.TemClinica)
-                @Html.ValidationMessageFor(model => model.TemClinica, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.WebsiteBlog, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.WebsiteBlog, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.WebsiteBlog, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDCidade, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDCidade", null, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IDCidade, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDEspecialidade, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDEspecialidade", null, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IDEspecialidade, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <h3 class="control-label col-md-2">Certificados</h3>
-    <br />
-    <div class="wrapper">
-        <div><input type="text" name="certificado[0].Nome" id="certificado[0].Nome" placeholder="Input Text Here" /></div>
-    </div>
-    <button class="add_fields">Add More Fields</button>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
-
+    <div id="row-base" style="display:none">
+        <div class="row-parent">
+            <div class="row">
+                <div class="col-xs-12 col-lg-10 col-md-10 col-sm-12">
+                    <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                        <div class="row">
+                            <div class="col-xs-12 col-lg-12">
+                                <br />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="Certificado1" class="clear">Certificado 1</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="Certificado1" value="1" id="Certificado1" class="flat" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Certificado2" class="clear">Certificado 2</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="Certificado2" value="1" id="Certificado2" class="flat" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Certificado3" class="clear">Certificado 3</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="Certificado3" value="1" id="Certificado3" class="flat" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Certificado4" class="clear">Certificado 4</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="Certificado4" value="1" id="Certificado4" class="flat" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Certificado5" class="clear">Certificado 5</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="Certificado5" value="1" id="Certificado5" class="flat" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Certificado6" class="clear">Certificado 6</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="Certificado6" value="1" id="Certificado6" class="flat" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Certificado7" class="clear">Certificado 7</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="Certificado7" value="1" id="Certificado7" class="flat" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-lg-10 col-md-10 col-sm-12">
+                    <div class="form-group">
+                        <label class="control-label" for="CargaHoraria">Carga Horaria</label>
+                        <input class="form-control" id="CargaHoraria" name="CargaHoraria" type="text" value="" maxlength="5">
+                        <span class="field-validation-valid" data-valmsg-for="CargaHoraria" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <input type="button" id="remove-row-button" class="add_fields" value="Remove Certificado">
+        </div>
+    </div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 
 <script>
-    $(document).ready(function () {
-        var max_fields = 9; //Maximum allowed input fields 
-        var wrapper = $(".wrapper"); //Input fields wrapper
-        var add_button = $(".add_fields"); //Add button class or ID
-        var x = 0; //Initial input field is set to 1
 
-        //When user click on add input button
-        $(add_button).click(function (e) {
-            e.preventDefault();
-            //Check maximum allowed input fields
-            if (x < max_fields) {
-                x++; //input field increment
-                //add input field
-                $(wrapper).append('<div><input type="text" name="certificado[' + x + '].Nome" id="certificado[' + x + '].Nome" placeholder="Input Text Here" /> <a href="javascript:void(0);" class="remove_field">Remove</a></div>');
-            }
-        });
-
-        //when user click on remove button
-        $(wrapper).on("click", ".remove_field", function (e) {
-            e.preventDefault();
-            $(this).parent('div').remove(); //remove inout field
-            x--; //inout field decrement
-        })
+    certificados = [];
+    $("#btn-adicionar-certificado").click(function () {
+        renderCertificado();
     });
+
+    function renderCertificado() {
+        var row_base = $("#row-base").children().clone()[0];
+        $("#row-certificados").append(row_base);
+        var elementRow = $(row_base).find('#remove-row-button');
+        var Certificado1 = $(row_base).find('#Certificado1');
+        var Certificado2 = $(row_base).find('#Certificado2');
+        var Certificado3 = $(row_base).find('#Certificado3');
+        var Certificado4 = $(row_base).find('#Certificado4');
+        var Certificado5 = $(row_base).find('#Certificado5');
+        var Certificado6 = $(row_base).find('#Certificado6');
+        var Certificado7 = $(row_base).find('#Certificado7');
+        var elementCargaHoraria = $(row_base).find("#CargaHoraria");
+        var elementCargaHorariaValidation = $(row_base).find("span[data-valmsg-for='CargaHoraria']");
+        elementCargaHorariaValidation.attr("id", "CargaHoraria-msg");
+        Certificado1.attr("name", `Certificados[${certificados.length}].Certificado1`);
+        Certificado2.attr("name", `Certificados[${certificados.length}].Certificado2`);
+        Certificado3.attr("name", `Certificados[${certificados.length}].Certificado3`);
+        Certificado4.attr("name", `Certificados[${certificados.length}].Certificado4`);
+        Certificado5.attr("name", `Certificados[${certificados.length}].Certificado5`);
+        Certificado6.attr("name", `Certificados[${certificados.length}].Certificado6`);
+        Certificado7.attr("name", `Certificados[${certificados.length}].Certificado7`);
+        elementCargaHoraria.attr("name", `Certificados[${certificados.length}].CargaHoraria`);
+        elementCargaHorariaValidation.attr("data-valmsg-for", `Certificados[${certificados.length}].CargaHoraria`);
+
+        $(row_base).attr("id", `row-${certificados.length}`);
+        $(row_base).attr("name", certificados.length);
+
+        certificados.push(row_base);
+        loadRemoveRowButtom(elementRow);
+    }
+
+    var loadRemoveRowButtom = function (element) {
+        var selector = element ? element : '.remove-row-button';
+
+        $(selector).click(function (e) {
+            e.preventDefault();
+            removeRow(this);
+        });
+    }
+
+    function removeRow(element) {
+        var row = $(element).parents('.row-parent');
+        var index = parseInt($(row).attr("name"));
+        row.remove();
+        reorderElments(index);
+        certificados.splice(index, 1);
+    }
+
+    function reorderElments(index) {
+        index = parseInt(index);
+        for (i = index + 1; i < certificados.length; i++) {
+            var row_base = $("#row-subsetores").find(`#row-${i}`);
+            var Certificado1 = $(row_base).find('#Certificado1');
+            var Certificado2 = $(row_base).find('#Certificado2');
+            var Certificado3 = $(row_base).find('#Certificado3');
+            var Certificado4 = $(row_base).find('#Certificado4');
+            var Certificado5 = $(row_base).find('#Certificado5');
+            var Certificado6 = $(row_base).find('#Certificado6');
+            var Certificado7 = $(row_base).find('#Certificado7');
+            var elementCargaHoraria = $(row_base).find("#CargaHoraria");
+            var elementCargaHorariaValidation = $(row_base).find("span[data-valmsg-for='CargaHoraria']");
+            elementCargaHorariaValidation.attr("id", "CargaHoraria-msg");
+            Certificado1.attr("name", `Certificados[${i - 1}].Certificado1`);
+            Certificado2.attr("name", `Certificados[${i - 1}].Certificado2`);
+            Certificado3.attr("name", `Certificados[${i - 1}].Certificado3`);
+            Certificado4.attr("name", `Certificados[${i - 1}].Certificado4`);
+            Certificado5.attr("name", `Certificados[${i - 1}].Certificado5`);
+            Certificado6.attr("name", `Certificados[${i - 1}].Certificado6`);
+            Certificado7.attr("name", `Certificados[$${i - 1}].Certificado7`);
+            elementCargaHoraria.attr("name", `Certificados[${i - 1}].CargaHoraria`);
+            elementCargaHorariaValidation.attr("data-valmsg-for", `Certificados[${i - 1}].CargaHoraria`);
+            $(row_base).attr("id", `row-${i - 1}`);
+            $(row_base).attr("name", i - 1);
+        }
+    } $("#btn-adicionar-certificado").click(function () {
+        renderCertificado();
+    });
+
+    function renderCertificado() {
+        var row_base = $("#row-base").children().clone()[0];
+        $("#row-certificados").append(row_base);
+        var elementRow = $(row_base).find('#remove-row-button');
+        var Certificado1 = $(row_base).find('#Certificado1');
+        var Certificado2 = $(row_base).find('#Certificado2');
+        var Certificado3 = $(row_base).find('#Certificado3');
+        var Certificado4 = $(row_base).find('#Certificado4');
+        var Certificado5 = $(row_base).find('#Certificado5');
+        var Certificado6 = $(row_base).find('#Certificado6');
+        var Certificado7 = $(row_base).find('#Certificado7');
+        var elementCargaHoraria = $(row_base).find("#CargaHoraria");
+        var elementCargaHorariaValidation = $(row_base).find("span[data-valmsg-for='CargaHoraria']");
+        elementCargaHorariaValidation.attr("id", "CargaHoraria-msg");
+        Certificado1.attr("name", `Certificados[${certificados.length}].Certificado1`);
+        Certificado2.attr("name", `Certificados[${certificados.length}].Certificado2`);
+        Certificado3.attr("name", `Certificados[${certificados.length}].Certificado3`);
+        Certificado4.attr("name", `Certificados[${certificados.length}].Certificado4`);
+        Certificado5.attr("name", `Certificados[${certificados.length}].Certificado5`);
+        Certificado6.attr("name", `Certificados[${certificados.length}].Certificado6`);
+        Certificado7.attr("name", `Certificados[${certificados.length}].Certificado7`);
+        elementCargaHoraria.attr("name", `Certificados[${certificados.length}].CargaHoraria`);
+        elementCargaHorariaValidation.attr("data-valmsg-for", `Certificados[${certificados.length}].CargaHoraria`);
+
+        $(row_base).attr("id", `row-${certificados.length}`);
+        $(row_base).attr("name", certificados.length);
+
+        certificados.push(row_base);
+        loadRemoveRowButtom(elementRow);
+    }
+
+    var loadRemoveRowButtom = function (element) {
+        var selector = element ? element : '.remove-row-button';
+
+        $(selector).click(function (e) {
+            e.preventDefault();
+            removeRow(this);
+        });
+    }
+
+    function removeRow(element) {
+        var row = $(element).parents('.row-parent');
+        var index = parseInt($(row).attr("name"));
+        row.remove();
+        reorderElments(index);
+        certificados.splice(index, 1);
+    }
+
+    function reorderElments(index) {
+        index = parseInt(index);
+        for (i = index + 1; i < certificados.length; i++) {
+            var row_base = $("#row-subsetores").find(`#row-${i}`);
+            var Certificado1 = $(row_base).find('#Certificado1');
+            var Certificado2 = $(row_base).find('#Certificado2');
+            var Certificado3 = $(row_base).find('#Certificado3');
+            var Certificado4 = $(row_base).find('#Certificado4');
+            var Certificado5 = $(row_base).find('#Certificado5');
+            var Certificado6 = $(row_base).find('#Certificado6');
+            var Certificado7 = $(row_base).find('#Certificado7');
+            var elementCargaHoraria = $(row_base).find("#CargaHoraria");
+            var elementCargaHorariaValidation = $(row_base).find("span[data-valmsg-for='CargaHoraria']");
+            elementCargaHorariaValidation.attr("id", "CargaHoraria-msg");
+            Certificado1.attr("name", `Certificados[${i - 1}].Certificado1`);
+            Certificado2.attr("name", `Certificados[${i - 1}].Certificado2`);
+            Certificado3.attr("name", `Certificados[${i - 1}].Certificado3`);
+            Certificado4.attr("name", `Certificados[${i - 1}].Certificado4`);
+            Certificado5.attr("name", `Certificados[${i - 1}].Certificado5`);
+            Certificado6.attr("name", `Certificados[${i - 1}].Certificado6`);
+            Certificado7.attr("name", `Certificados[$${i - 1}].Certificado7`);
+            elementCargaHoraria.attr("name", `Certificados[${i - 1}].CargaHoraria`);
+            elementCargaHorariaValidation.attr("data-valmsg-for", `Certificados[${i - 1}].CargaHoraria`);
+            $(row_base).attr("id", `row-${i - 1}`);
+            $(row_base).attr("name", i - 1);
+        }
+    }
+</script>
+
+<script>
+    class Seletor {
+        constructor(attribute, listName, propName, element) {
+            Object.assign(this, { attribute, listName, propName, element })
+        }
+
+        updateIntex(index) {
+            if (this.listName != "")
+                this.element.attr(this.attribute, `${this.listName}[${index}].${this.propName}`);
+            else
+                this.element.attr(this.attribute, `${this.propName}${index}`);
+        }
+    }
+
+    class SeletorCertificados extends Seletor {
+        constructor(attribute, propName, element) {
+            super(attribute, "Certificados", propName, element);
+        }
+    }
+
+    class Seletores {
+        constructor(seletores, index){
+            this.seletores = seletores;
+            this.index = index;
+            this.updateIntex();
+        }
+
+        addSeletor(seletor) {
+            seletor.updateIntex(this.index);
+            this.seletores.push(seletor);
+        }
+
+        updateIntex() {
+            this.seletores.forEach((seletor, key) => {
+                seletor.updateIntex(this.index);
+            });
+        }
+    }
+
+    class Rows {
+        constructor() {
+            this.rows = [];
+        }
+        add(seletores) {
+            this.rows.push(seletores);
+        }
+
+        get length() {
+            return this.rows.length;
+        }
+
+        remove(index) {
+            for (var i = index + 1; i < this.length; i++) {
+                this.rows[i].index = i - 1;
+                this.rows[i].updateIntex(i - 1);
+            }
+            this.rows.splice(index, 1);
+        }
+    }
+
+    var rows = new Rows();
+
+    $("#btn-adicionar-certificado").click(function () {
+        renderCertificado();
+    });
+
+    function renderCertificado() {
+        var row_base = $("#row-base").children().clone()[0];
+        $("#row-certificados").append(row_base);
+        var removeButton = $(row_base).find('#remove-row-button');
+        var Certificado1 = $(row_base).find('#Certificado1');
+        var Certificado2 = $(row_base).find('#Certificado2');
+        var Certificado3 = $(row_base).find('#Certificado3');
+        var Certificado4 = $(row_base).find('#Certificado4');
+        var Certificado5 = $(row_base).find('#Certificado5');
+        var Certificado6 = $(row_base).find('#Certificado6');
+        var Certificado7 = $(row_base).find('#Certificado7');
+        var elementCargaHoraria = $(row_base).find("#CargaHoraria");
+        var elementCargaHorariaValidation = $(row_base).find("span[data-valmsg-for='CargaHoraria']");
+
+        var seletores = new Seletores([new SeletorCertificados("name", "Certificado1", Certificado1),
+            new SeletorCertificados("name", "Certificado2", Certificado2),
+            new SeletorCertificados("name", "Certificado3", Certificado3),
+            new SeletorCertificados("name", "Certificado4", Certificado4),
+            new SeletorCertificados("name", "Certificado5", Certificado5),
+            new SeletorCertificados("name", "Certificado6", Certificado6),
+            new SeletorCertificados("name", "Certificado7", Certificado7),
+            new SeletorCertificados("name", "CargaHoraria", elementCargaHoraria),
+            new SeletorCertificados("data-valmsg-for", "CargaHoraria", elementCargaHoraria),
+            new Seletor("id", "", "row-", $(row_base)),
+            new Seletor("name", "", "", $(row_base)),
+        ], rows.length);
+
+        rows.add(seletores);
+        loadRemoveRowButtom(removeButton);
+    }
+
+    var loadRemoveRowButtom = function (element) {
+        var selector = element ? element : '.remove-row-button';
+
+        $(selector).click(function (e) {
+            e.preventDefault();
+            remove(this);
+        });
+    }
+
+    function remove(element) {
+        var row = $(element).parents('.row-parent');
+        var index = parseInt($(row).attr("name"));
+        index = parseInt(index);
+        row.remove();
+        rows.remove(index);
+    }
 </script>

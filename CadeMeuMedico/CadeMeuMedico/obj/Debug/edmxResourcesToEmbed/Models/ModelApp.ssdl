@@ -16,6 +16,13 @@
     <Property Name="IDCertificado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="50" />
     <Property Name="IDMedico" Type="bigint" />
+    <Property Name="Certificado1" Type="bit" Nullable="false" />
+    <Property Name="Certificado2" Type="bit" Nullable="false" />
+    <Property Name="Certificado3" Type="bit" Nullable="false" />
+    <Property Name="Certificado4" Type="bit" Nullable="false" />
+    <Property Name="Certificado5" Type="bit" Nullable="false" />
+    <Property Name="Certificado6" Type="bit" Nullable="false" />
+    <Property Name="CargaHoraria" Type="int" />
   </EntityType>
   <EntityType Name="Cidades">
     <Key>

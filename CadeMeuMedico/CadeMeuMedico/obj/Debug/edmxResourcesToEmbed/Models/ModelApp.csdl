@@ -42,6 +42,13 @@
     <Property Name="IDCertificado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IDMedico" Type="Int64" />
+    <Property Name="Certificado1" Type="Boolean" Nullable="false" />
+    <Property Name="Certificado2" Type="Boolean" Nullable="false" />
+    <Property Name="Certificado3" Type="Boolean" Nullable="false" />
+    <Property Name="Certificado4" Type="Boolean" Nullable="false" />
+    <Property Name="Certificado5" Type="Boolean" Nullable="false" />
+    <Property Name="Certificado6" Type="Boolean" Nullable="false" />
+    <Property Name="CargaHoraria" Type="Int32" />
     <NavigationProperty Name="Medicos" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Certificados" ToRole="Medicos" />
   </EntityType>
   <EntityType Name="Cidades">

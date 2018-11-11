@@ -21,6 +21,13 @@
           <Property Name="IDCertificado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="50" />
           <Property Name="IDMedico" Type="bigint" />
+          <Property Name="Certificado1" Type="bit" Nullable="false" />
+          <Property Name="Certificado2" Type="bit" Nullable="false" />
+          <Property Name="Certificado3" Type="bit" Nullable="false" />
+          <Property Name="Certificado4" Type="bit" Nullable="false" />
+          <Property Name="Certificado5" Type="bit" Nullable="false" />
+          <Property Name="Certificado6" Type="bit" Nullable="false" />
+          <Property Name="CargaHoraria" Type="int" />
         </EntityType>
         <EntityType Name="Cidades">
           <Key>
@@ -200,6 +207,13 @@
           <Property Name="IDCertificado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDMedico" Type="Int64" />
+          <Property Name="Certificado1" Type="Boolean" Nullable="false" />
+          <Property Name="Certificado2" Type="Boolean" Nullable="false" />
+          <Property Name="Certificado3" Type="Boolean" Nullable="false" />
+          <Property Name="Certificado4" Type="Boolean" Nullable="false" />
+          <Property Name="Certificado5" Type="Boolean" Nullable="false" />
+          <Property Name="Certificado6" Type="Boolean" Nullable="false" />
+          <Property Name="CargaHoraria" Type="Int32" />
           <NavigationProperty Name="Medicos" Relationship="CadeMeuMedicoBDModel.FK_Certificado_Medico" FromRole="Certificados" ToRole="Medicos" />
         </EntityType>
         <EntityType Name="Cidades">
@@ -334,6 +348,13 @@
           <EntitySetMapping Name="Certificados">
             <EntityTypeMapping TypeName="CadeMeuMedicoBDModel.Certificados">
               <MappingFragment StoreEntitySet="Certificados">
+                <ScalarProperty Name="CargaHoraria" ColumnName="CargaHoraria" />
+                <ScalarProperty Name="Certificado6" ColumnName="Certificado6" />
+                <ScalarProperty Name="Certificado5" ColumnName="Certificado5" />
+                <ScalarProperty Name="Certificado4" ColumnName="Certificado4" />
+                <ScalarProperty Name="Certificado3" ColumnName="Certificado3" />
+                <ScalarProperty Name="Certificado2" ColumnName="Certificado2" />
+                <ScalarProperty Name="Certificado1" ColumnName="Certificado1" />
                 <ScalarProperty Name="IDMedico" ColumnName="IDMedico" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="IDCertificado" ColumnName="IDCertificado" />

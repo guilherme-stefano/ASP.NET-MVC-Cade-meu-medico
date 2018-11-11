@@ -14,6 +14,13 @@
     <EntitySetMapping Name="Certificados">
       <EntityTypeMapping TypeName="CadeMeuMedicoBDModel.Certificados">
         <MappingFragment StoreEntitySet="Certificados">
+          <ScalarProperty Name="CargaHoraria" ColumnName="CargaHoraria" />
+          <ScalarProperty Name="Certificado6" ColumnName="Certificado6" />
+          <ScalarProperty Name="Certificado5" ColumnName="Certificado5" />
+          <ScalarProperty Name="Certificado4" ColumnName="Certificado4" />
+          <ScalarProperty Name="Certificado3" ColumnName="Certificado3" />
+          <ScalarProperty Name="Certificado2" ColumnName="Certificado2" />
+          <ScalarProperty Name="Certificado1" ColumnName="Certificado1" />
           <ScalarProperty Name="IDMedico" ColumnName="IDMedico" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="IDCertificado" ColumnName="IDCertificado" />

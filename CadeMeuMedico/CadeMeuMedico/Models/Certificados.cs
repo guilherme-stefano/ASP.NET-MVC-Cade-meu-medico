@@ -17,6 +17,13 @@ namespace CadeMeuMedico.Models
         public int IDCertificado { get; set; }
         public string Nome { get; set; }
         public Nullable<long> IDMedico { get; set; }
+        public bool Certificado1 { get; set; }
+        public bool Certificado2 { get; set; }
+        public bool Certificado3 { get; set; }
+        public bool Certificado4 { get; set; }
+        public bool Certificado5 { get; set; }
+        public bool Certificado6 { get; set; }
+        public Nullable<int> CargaHoraria { get; set; }
     
         public virtual Medicos Medicos { get; set; }
     }
